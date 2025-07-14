@@ -29,21 +29,21 @@ jobs:
       #   run: |
       #     pytest tests/ 
 
-      # - name: Downloading Data.....
-      #   run: |
-      #     python script/download_data.py
+      - name: Downloading Data.....
+        run: |
+          python script/download_data.py
 
-      # - name: Converting Data.....
-      #   run: |
-      #     python script/converting_data.py
+      - name: Converting Data.....
+        run: |
+          python script/converting_data.py
       
-      # - name: Cleaning Data.....
-      #   run: |
-      #     python script/data_cleaning.py
+      - name: Cleaning Data.....
+        run: |
+          python script/data_cleaning.py
       
-      # - name: Generating Validation Data.....
-      #   run: |
-      #     python script/generating_validation_data.py
+      - name: Generating Validation Data.....
+        run: |
+          python script/generating_validation_data.py
       
       - name: Starting MlFlow.....
         run: |
