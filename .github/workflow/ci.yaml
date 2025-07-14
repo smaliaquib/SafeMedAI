@@ -1,0 +1,52 @@
+name: Reaction Outcome
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-verion: '3.11.9'
+        
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip 
+          pip install -r requirements.txt
+      
+      # - name: Run tests
+      #   run: |
+      #     pytest tests/ 
+
+      - name: Downloading Data.....
+        run: |
+          python script/download_data.py
+
+      - name: Converting Data.....
+        run: |
+          python script/converting_data.py
+      
+      - name: Cleaning Data.....
+        run: |
+          python script/data_cleaning.py
+      
+      - name: Cleaning Data.....
+        run: |
+          python script/generating_validation_data.py
+      
+      - name: Training.....
+        run: |
+          python script/train.py
+      
+        

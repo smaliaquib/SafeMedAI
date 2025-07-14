@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Envs and logs
+.env
+.venv/
+*.log
+debug.log
+
+# Jupyter
+.ipynb_checkpoints/
+
+# MLflow artifacts
+mlruns/
+mlartifacts/
+models/
+*.pkl
+
+# Data
+data/
+*.parquet
+
+# IDEs
+.vscode/
+.idea/
