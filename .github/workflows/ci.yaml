@@ -41,9 +41,13 @@ jobs:
         run: |
           python script/data_cleaning.py
       
-      - name: Cleaning Data.....
+      - name: Generating Validation Data.....
         run: |
           python script/generating_validation_data.py
+      
+      - name: Starting MlFlow.....
+        run: |
+          mlflow server --host localhost --port 5555
       
       - name: Training.....
         run: |
