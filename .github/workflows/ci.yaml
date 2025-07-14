@@ -47,7 +47,7 @@ jobs:
       
       - name: Starting MlFlow.....
         run: |
-          mlflow server --host localhost --port 5555
+          nohup mlflow server --host localhost --port 5555
       
       - name: Training.....
         run: |
