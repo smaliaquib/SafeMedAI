@@ -333,5 +333,18 @@
     "7": "71-80",
     "8": "81+",
     "9": "Unknown"
+  },
+  "sex":{
+    "0": "Unknown",
+    "1": "F",
+    "2": "M"
+  },
+  "reaction_outcome":{
+    "0": "Recovered/Resolved",
+    "1": "Recovering/Resolving",
+    "2": "Not Recovered/Not Resolved",
+    "3": "Recovered/Resolved with Sequelae",
+    "4": "Fatal",
+    "5": "Unknown"
   }
 }
