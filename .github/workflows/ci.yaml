@@ -18,7 +18,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.12.9'  # Fixed typo here: "python-verion" → "python-version"
+          python-version: '3.12.9'
         
       - name: Install dependencies
         run: |

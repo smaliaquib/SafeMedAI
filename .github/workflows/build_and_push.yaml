@@ -5,6 +5,8 @@ on:
     workflows: ["CI"]
     types:
       - completed
+    branches:
+      - main
 
 permissions:
   id-token: write
@@ -12,10 +14,9 @@ permissions:
 
 jobs:
   build:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: Build Image
     runs-on: ubuntu-latest
-
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Check out code
         uses: actions/checkout@v3
