@@ -9,9 +9,9 @@ permissions:
 
 jobs:
   build:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: Build Image
     runs-on: ubuntu-latest
-    needs: CI
     steps:
       - name: Check out code
         uses: actions/checkout@v3
