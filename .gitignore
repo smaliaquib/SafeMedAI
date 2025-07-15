@@ -14,7 +14,7 @@ debug.log
 # MLflow artifacts
 mlruns/
 mlartifacts/
-models/
+# models/
 *.pkl
 
 # Data
