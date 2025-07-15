@@ -31,6 +31,7 @@ jobs:
           REPOSITORY: ${{ github.event.repository.name }}
           IMAGE_TAG: ${{ steps.vars.outputs.short_sha }}
         run: |
+          repo=$(echo "$REPOSITORY" | tr '[:upper:]' '[:lower:]')
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
       - name: Build & Push Summary
