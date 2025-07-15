@@ -1,4 +1,6 @@
 name: CI
+
+on:
   push:
     branches:
       - main
@@ -16,17 +18,13 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
-          python-verion: '3.12.9'
+          python-version: '3.12.9'  # Fixed typo here: "python-verion" → "python-version"
         
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip 
           pip install -r requirements.txt
       
-      # - name: Run tests
-      #   run: |
-      #     pytest tests/ 
-
       - name: Downloading Data.....
         run: |
           python script/download_data.py
@@ -46,9 +44,7 @@ jobs:
       - name: Starting MlFlow.....
         run: |
           nohup mlflow server --host localhost --port 5555 &
-      
+
       - name: Training.....
         run: |
           python script/train.py
-      
-        
