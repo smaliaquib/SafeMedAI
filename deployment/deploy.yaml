@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: safemed-container
-          image: 493742262720.dkr.ecr.us-east-1.amazonaws.com/safe-med:bf6512f
+          image: 590183851992.dkr.ecr.us-east-1.amazonaws.com/safe-med
           command: ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
           ports:
             - containerPort: 8501
