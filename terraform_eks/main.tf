@@ -11,5 +11,5 @@ provider "aws" {
 
 
 locals {
-  cluster_name = "declarative-mlops"
+  cluster_name = "safe-med"
 }
