@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: safemed-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: safemed
+  template:
+    metadata:
+      labels:
+        app: safemed
+    spec:
+      containers:
+        - name: safemed-container
+          image: 493742262720.dkr.ecr.us-east-1.amazonaws.com/safe-med:<REPLACE_WITH_TAG>
+          command: ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+          ports:
+            - containerPort: 8501
+          readinessProbe:
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            httpGet:
+              path: /
+              port: 8501
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: safemed-service
+  labels:
+    app: safemed
+spec:
+  selector:
+    app: safemed
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8501
+  type: LoadBalancer
